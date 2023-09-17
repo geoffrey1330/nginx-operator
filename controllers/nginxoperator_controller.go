@@ -97,5 +97,6 @@ func (r *NginxOperatorReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 func (r *NginxOperatorReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&operatorv1alpha1.NginxOperator{}).
+		Owns(&appsv1.Deployment{}).
 		Complete(r)
 }
