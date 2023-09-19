@@ -84,6 +84,7 @@ func (r *NginxOperatorReconciler) Reconcile(ctx context.Context, req ctrl.Reques
 	}
 
 	ctrl.SetControllerReference(operatorCR, deployment, r.Scheme)
+
 	if create {
 		err = r.Create(ctx, deployment)
 	} else {
